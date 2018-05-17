@@ -34,10 +34,11 @@
               Q1
             </div>
             <div fxFlex fxLayoutAlign="space-between center" class="question" *ngIf="!editQ[i]">
-              {{faq.Q1}} ?
+              {{faq.Q1}} ? {{faq.Q2}}
               <i class="fa fa-desktop" title="Edit" (click)="editQ[i] = !editQ[i]"></i>
             </div>
             <textarea [(ngModel)]="faq.Q1" fxFlex fxLayoutAlign="space-between center" class="question" *ngIf="editQ[i]"></textarea>
+            <textarea [(ngModel)]="faq.Q2" fxFlex fxLayoutAlign="space-between center" class="question" *ngIf="editQ[i] && faq.Q2"></textarea>
           </div>
           <div class="answer-container" fxLayout="row" fxFlex="60">
             <div fxFlex="10" class="sno">
