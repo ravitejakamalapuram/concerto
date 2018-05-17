@@ -1,0 +1,67 @@
+<div class="container" fxFill fxFlex>
+
+  <div class="header" fxLayout="row">
+    <img src="assets/logo.png" alt="Concerto.io">
+    <div class="menu" fxFlex fxLayout="row" fxLayoutAlign="none center">
+      <div fxFlex="85" style="height: 100%;">
+        <div class="tab">
+          <i class="fa fa-file-text-o" style="margin:10px;"></i>
+          Content Management
+        </div>
+      </div>
+      <i class="fa fa-cog" fxFlex="10"></i>
+      <i class="fa fa-power-off" fxFlex="10"></i>
+    </div>
+  </div>
+
+  <div class="content-container" fxLayout="row" fxFill>
+    <div fxFlex="80" fxLayout="column">
+
+      <div class="faq-header" fxLayout="row" fxLayoutAlign="space-between center">
+        <div style="padding: 10px 10px 10px 30px;">
+          FAQ Review
+        </div>
+        <div style="font-size: small;" fxFlexAlign="end">
+          Total Q&As:24
+        </div>
+      </div>
+
+      <div fxFlex="80" fxLayout="column" style="overflow-y: auto;">
+        <div class="faq-container" fxLayout="column" *ngFor="let faq of faqList; let i = index;" fxFlex="33.3">
+
+          <div class="question-container" fxLayout="row" fxFlex="40">
+            <div fxFlex="10" class="sno">
+              Q1
+            </div>
+            <div fxFlex fxLayoutAlign="space-between center" class="question" *ngIf="!editQ[i]">
+              {{faq.Q1}} ?
+              <i class="fa fa-desktop" title="Edit" (click)="editQ[i] = !editQ[i]"></i>
+            </div>
+            <textarea [(ngModel)]="faq.Q1" fxFlex fxLayoutAlign="space-between center" class="question" *ngIf="editQ[i]"></textarea>
+          </div>
+          <div class="answer-container" fxLayout="row" fxFlex="60">
+            <div fxFlex="10" class="sno">
+              A1
+            </div>
+            <div fxFlex fxLayoutAlign="space-between none" class="answer" *ngIf="!editA[i]">
+              {{faq.A1}}
+              <span fxLayout="column" fxLayoutAlign="space-between end">
+                <i class="fa fa-desktop" title="Edit" (click)="editA[i] = !editA[i]"></i>
+                <div *ngIf="!objectEditedCheck(faq)" fxLayout="row" fxLayoutAlign="center center">
+                  <i class="fa fa-edit" title="Edited" fxFlexAlign="end"></i>Edited</div>
+              </span>
+            </div>
+            <textarea [(ngModel)]="faq.A1" fxFlex fxLayoutAlign="space-between none" class="answer" *ngIf="editA[i]"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="buttons" fxLayout="row" fxLayoutAlign="end center" fxFlex="20">
+        <button (click)="cancelEditing()">Cancel</button>
+        <button style="color:white; background: #66B6FD;" (click)="submit()">Approve & Submit</button>
+      </div>
+    </div>
+  </div>
+
+</div>

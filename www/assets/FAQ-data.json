@@ -1,0 +1,17 @@
+[
+	{
+		"Q1": "Who is Harry Potter",
+		"A1": "Harry James Potter is the title character and protagonist of J. K. Rowling's Harry Potter series. The majority of the books' plot covers seven years in the life of the orphan Potter, who, on his eleventh birthday, learns he is a wizard."
+	},
+
+	{
+		"Q1": "Who is Moriarty",
+		"A1": "Professor James Moriarty is a fictional character in some of the Sherlock Holmes stories written by Sir Arthur Conan Doyle. Moriarty is a criminal mastermind whom Holmes describes as the \"Napoleon of crime\"."
+	},
+
+	{
+		"Q1": "who is simba",
+		"Q2": "What was Simba's role in The Lion King?",
+		"A1": "Simba is an adult male lion, the king of Pride Rock, and the only son of Mufasa and Sarabi who appears in Disney's The Lion King franchise."
+	}
+]
