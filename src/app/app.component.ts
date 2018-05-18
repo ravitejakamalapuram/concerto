@@ -20,6 +20,11 @@ export class AppComponent implements OnInit {
       (e || window.event).returnValue = confirmationMessage;
       return confirmationMessage;
     });
+    document.getElementsByClassName('content-container')[0].addEventListener('click', ($event) => {
+      if ($event.srcElement.className == 'content-container') {
+        this.lock();
+      }
+    });
     this.getDatafromJson();
   }
 
@@ -27,7 +32,16 @@ export class AppComponent implements OnInit {
     this.getData.getData().subscribe(res => {
       this.faqList = res;
       this.faqListCopy = JSON.stringify(res);
+      for (let o in res) {
+        this.editA.push(true);
+        this.editQ.push(true);
+      }
     });
+  }
+
+  lock() {
+    this.editQ = [];
+    this.editA = [];
   }
 
   cancelEditing() {

@@ -72,6 +72,19 @@
     padding: 10px;
 }
 
-.answer-container, .question-container {
+.answer-container,
+.question-container {
     padding: 5px 0 5px 0;
+}
+
+textarea {
+    padding-right: 50px !important;
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+    font: inherit;
 }

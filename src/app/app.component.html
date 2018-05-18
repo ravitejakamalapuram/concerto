@@ -29,30 +29,33 @@
       <div fxFlex="80" fxLayout="column" style="overflow-y: auto;">
         <div class="faq-container" fxLayout="column" *ngFor="let faq of faqList; let i = index;" fxFlex="33.3">
 
-          <div class="question-container" fxLayout="row" fxFlex="40">
+          <div class="question-container" fxLayout="row" fxFlex="40" style="position:relative;">
             <div fxFlex="10" class="sno">
               Q1
             </div>
-            <div fxFlex fxLayoutAlign="space-between center" class="question" *ngIf="!editQ[i]">
+            <div fxFlex fxLayoutAlign="space-between center" class="question" (click)="editQ[i] = !editQ[i]" *ngIf="!editQ[i]">
               {{faq.Q1}} ? {{faq.Q2}}
-              <i class="fa fa-desktop" title="Edit" (click)="editQ[i] = !editQ[i]"></i>
+              <!-- <i class="fa fa-desktop"></i> -->
             </div>
             <textarea [(ngModel)]="faq.Q1" fxFlex fxLayoutAlign="space-between center" class="question" *ngIf="editQ[i]"></textarea>
             <textarea [(ngModel)]="faq.Q2" fxFlex fxLayoutAlign="space-between center" class="question" *ngIf="editQ[i] && faq.Q2"></textarea>
+            <i class="fa fa-desktop" style="position:absolute;top:50%;transform: translate(0,-50%);right:10px;"></i>
           </div>
-          <div class="answer-container" fxLayout="row" fxFlex="60">
+          <div class="answer-container" fxLayout="row" fxFlex="60" style="position:relative;">
             <div fxFlex="10" class="sno">
               A1
             </div>
-            <div fxFlex fxLayoutAlign="space-between none" class="answer" *ngIf="!editA[i]">
+            <div fxFlex fxLayoutAlign="space-between none" class="answer" (click)="editA[i] = !editA[i]" *ngIf="!editA[i]">
               {{faq.A1}}
-              <span fxLayout="column" fxLayoutAlign="space-between end">
-                <i class="fa fa-desktop" title="Edit" (click)="editA[i] = !editA[i]"></i>
-                <div *ngIf="!objectEditedCheck(faq)" fxLayout="row" fxLayoutAlign="center center">
-                  <i class="fa fa-edit" title="Edited" fxFlexAlign="end"></i>Edited</div>
-              </span>
+              <!-- <span fxLayout="column" fxLayoutAlign="none end">
+                <i class="fa fa-desktop"></i>
+              </span> -->
             </div>
             <textarea [(ngModel)]="faq.A1" fxFlex fxLayoutAlign="space-between none" class="answer" *ngIf="editA[i]"></textarea>
+            <div *ngIf="!objectEditedCheck(faq)" fxLayout="row" fxLayoutAlign="center center" style="position:absolute;bottom:10px;right:10px;">
+              <i class="fa fa-edit" title="Edited" fxFlexAlign="end"></i>&nbsp;Edited
+            </div>
+            <i class="fa fa-desktop" style="position:absolute;top:10px;right:10px;"></i>
           </div>
         </div>
 
